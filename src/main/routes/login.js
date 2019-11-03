@@ -4,9 +4,11 @@ var router = express.Router();
 
 /* GET login page */
 router.get("/", function(req, res, next) {
+  var error = null;
+  if (req.query.error) error = req.query.error;
   res.render("base_template", {
     title: "Login",
-    body: mustache.render("login")
+    body: mustache.render("login", { error: error })
   });
 });
 
@@ -16,7 +18,8 @@ router.post("/", (req, res, next) => {
   if (req.body.username === "user" && req.body.password === "password") {
     res.redirect(302, "/course/");
   } else {
-    res.redirect(302, "/login/");
+    const error = "Invalid username and password!";
+    res.redirect(302, "/login?error=" + encodeURI(error));
   }
 });
 
