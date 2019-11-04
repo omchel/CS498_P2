@@ -1,5 +1,7 @@
 var express = require("express");
 var mustache = require("../common/mustache");
+var querystring = require("querystring");
+
 var router = express.Router();
 
 /* GET login page */
@@ -18,8 +20,10 @@ router.post("/", (req, res, next) => {
   if (req.body.username === "user" && req.body.password === "password") {
     res.redirect(302, "/course/");
   } else {
-    const error = "Invalid username and password!";
-    res.redirect(302, "/login?error=" + encodeURI(error));
+    const query = querystring.stringify({
+      error: "Invalid username and password!"
+    });
+    res.redirect(302, "/login?" + query);
   }
 });
 
