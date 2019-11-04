@@ -1,16 +1,30 @@
-<section class="login_page container">
-  {{#error}}
-  <div class="alert alert-danger" role="alert">{{error}}</div>
-  {{/error}}
+<section>
+  <div class="row">
+    <div class="col">
+      {{#error}}
+      <div class="alert alert-danger" role="alert">{{error}}</div>
+      {{/error}}
+    </div>
+  </div>
   <form target="_self" method="POST">
-    <div class="row">
-      <label for="username">username: </label
-      ><input type="text" name="username" />
+    <div class="form-group">
+      <label for="username">Username </label
+      ><input
+        class="form-control"
+        type="text"
+        name="username"
+        placeholder="Username"
+      />
     </div>
-    <div class="row">
-      <label for="password">password: </label
-      ><input type="password" name="password" />
+    <div class="form-group">
+      <label for="password">Password </label
+      ><input
+        class="form-control"
+        type="password"
+        name="password"
+        placeholder="Password"
+      />
     </div>
-    <input type="submit" style="display: none" />
+    <input type="submit" class="btn btn-primary" />
   </form>
 </section>

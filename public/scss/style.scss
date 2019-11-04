@@ -1,27 +1,25 @@
 body {
-	text-align: center;
-	font: 16px "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font: 16px "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a {
-	color: #00B7FF;
-	text-decoration: none;
+  color: #00b7ff;
+  text-decoration: none;
 }
 
 .material-icons {
-	vertical-align: middle;
-	font-size: inherit !important;
+  vertical-align: middle;
+  font-size: inherit !important;
 }
 
 #course_index_page {
-	text-align: left;
-	table {
-		width: 100%;
-		text-align: center;
+  text-align: left;
+  table {
+    width: 100%;
+    text-align: center;
 
-		tr:first-child {
-			border-bottom: 1px solid black
-		}
-	}
+    tr:first-child {
+      border-bottom: 1px solid black;
+    }
+  }
 }
-	
