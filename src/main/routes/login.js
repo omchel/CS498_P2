@@ -10,7 +10,7 @@ router.get("/", function(req, res, next) {
   if (req.query.error) error = req.query.error;
   res.render("base_template", {
     title: "Login",
-    body: mustache.render("login", { error: error })
+    body: mustache.render("login", { error: error, login: true })
   });
 });
 
