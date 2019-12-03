@@ -30,25 +30,25 @@
 						{{/metrics}}
 					</tr>
 					<tr>
-						<td>Exceeds Standards</td>
+						<td style="background-color:blue;color:black;">Exceeds Standards</td>
 						{{#metrics}}
 							<td>{{exceeds}}</td>
 						{{/metrics}}
 					</tr>
 					<tr>
-						<td>Meets Standards</td>
+						<td style="background-color:yellowgreen;color:black;">Meets Standards</td>
 						{{#metrics}}
 							<td>{{meets}}</td>
 						{{/metrics}}
 					</tr>
 					<tr>
-						<td>Partially Meets Standards</td>
+						<td style="background-color:yellow;color:black;">Partially Meets Standards</td>
 						{{#metrics}}
 							<td>{{partially}}</td>
 						{{/metrics}}
 					</tr>
 					<tr>
-						<td>Does Not Meet Standards</td>
+						<td style="background-color:red;color:black;">Does Not Meet Standards</td>
 						{{#metrics}}
 							<td>{{not}}</td>
 						{{/metrics}}
@@ -75,10 +75,10 @@
 									{{#evaluation}}
 										<td>
 											<select class="form-control" name="student-{{index}}-category-{{metric}}">
-												<option value="6">Exceeds</option>
-												<option value="7">Meets</option>
-												<option value="8">Partially</option>
-												<option value="9">Not</option>
+												<option value="6" style="background-color:blue;color:black;">Exceeds</option>
+												<option value="7" style="background-color:yellowgreen;color:black;">Meets</option>
+												<option value="8" style="background-color:yellow;color:black;">Partially</option>
+												<option value="9" style="background-color:red;color:black;">Not</option>
 												<option value="10">Does Not Apply</option>
 											</select>
 											<script>
@@ -98,7 +98,7 @@
 								<input type="submit" class="btn btn-primary" />
 							</div>
 							<div class="col-1 ml-auto">
-								<button type="button" class="btn btn-success">Create New Artifact</button>
+								<button type="button" onClick="" class="btn btn-success">Create New Artifact</button>
 							</div>
 						</div>
 					</form>
