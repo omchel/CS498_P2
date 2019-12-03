@@ -1,6 +1,7 @@
 var express = require("express");
 var mustache = require("../common/mustache");
 var querystring = require("querystring");
+var user_lib = require("../lib/user");
 
 var router = express.Router();
 
@@ -15,9 +16,9 @@ router.get("/", function(req, res, next) {
 });
 
 /* POST login page */
-router.post("/", (req, res, next) => {
+router.post("/", async (req, res, next) => {
   // hard coded username and password
-  if (req.body.username === "user" && req.body.password === "password") {
+  if (req.body.username === "user" && req.body.password === "password" && user_lib.is_whitelisted(req.body.username)) {
     res.redirect(302, "/course/");
   } else {
     const query = querystring.stringify({
