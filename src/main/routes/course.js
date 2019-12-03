@@ -4,11 +4,20 @@ var html = require("../common/html");
 var course_portfolio_lib = require("../lib/course_portfolio");
 var router = express.Router();
 
+const Course = require("../models/Course");
 const Department = require("../models/Department");
 const TermType = require("../models/TermType");
 
+async function end_date(id) {
+  const course = await Course.query().findById(id);
+  var date = new Date(course.end_date);
+  date.setDate(date.getDate() + 15);
+  return date.toString();
+}
+
 const course_manage_page = async (res, course_id, breadcrumbs) => {
   let course_info = {
+    end_date: await end_date(course_id),
     student_learning_outcomes: [
       {
         index: 1,
@@ -126,7 +135,7 @@ router
       if (req.params.id === "new") {
         await course_new_page(res, false, req.breadcrumbs);
       } else {
-        await course_manage_page(res, req.params.id, req.breadcrumbs);
+        course_manage_page(res, req.params.id, req.breadcrumbs);
       }
     })
   )
@@ -152,9 +161,15 @@ router
           await course_new_page(res, req.body.department, req.breadcrumbs);
         }
       } else {
-        await course_manage_page(res, 499, req.breadcrumbs);
+        await course_manage_page(
+          res,
+          req.params.id,
+          req.breadcrumbs,
+          end_date(req.params.id)
+        );
       }
     })
   );
 
 module.exports = router;
+module.exports.end_date = end_date;

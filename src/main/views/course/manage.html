@@ -1,109 +1,138 @@
 <section id="course_manage_page">
-	<div class="row">
-		<div class="col">
-			<h2>CS498 Course Portfolio</h2>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col">
-			<h3>
-				Course Summary
-			</h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col">
-			<h4>This course will be marked as read-only on: n/a</h4>
-		</div>
-	</div>
-	<hr>
-	{{#student_learning_outcomes}}
-		<div class="row">
-			<div class="col">
-				<h3>Student Learning Outcome {{index}}</h3>
-				<p>{{description}}</p>
-				<table class="table" id="student_learning_outcome_rubric">
-					<tr>
-						<th>Assessment Score</th>
-						{{#metrics}}
-							<th>{{name}}</th>
-						{{/metrics}}
-					</tr>
-					<tr>
-						<td style="background-color:blue;color:black;">Exceeds Standards</td>
-						{{#metrics}}
-							<td>{{exceeds}}</td>
-						{{/metrics}}
-					</tr>
-					<tr>
-						<td style="background-color:yellowgreen;color:black;">Meets Standards</td>
-						{{#metrics}}
-							<td>{{meets}}</td>
-						{{/metrics}}
-					</tr>
-					<tr>
-						<td style="background-color:yellow;color:black;">Partially Meets Standards</td>
-						{{#metrics}}
-							<td>{{partially}}</td>
-						{{/metrics}}
-					</tr>
-					<tr>
-						<td style="background-color:red;color:black;">Does Not Meet Standards</td>
-						{{#metrics}}
-							<td>{{not}}</td>
-						{{/metrics}}
-					</tr>
-				</table>
-			</div>
-		</div>
-		{{#artifacts}}
-			<div class="row">
-				<div class="col">
-					<h3>Artifact 1: {{name}}</h3>
-					<form id="edit_course_form" target="_self" method="POST">
-						<table class="table">
-							<tr>
-								<th>Student Index</th>
-								{{#metrics}}
-									<th>{{name}}</th>
-								{{/metrics}}
-								<th>Student Submission</th>
-							</tr>
-							{{#evaluations}}
-								<tr>
-									<td>{{index}}</td>
-									{{#evaluation}}
-										<td>
-											<select class="form-control" name="student-{{index}}-category-{{metric}}">
-												<option value="6" style="background-color:blue;color:black;">Exceeds</option>
-												<option value="7" style="background-color:yellowgreen;color:black;">Meets</option>
-												<option value="8" style="background-color:yellow;color:black;">Partially</option>
-												<option value="9" style="background-color:red;color:black;">Not</option>
-												<option value="10">Does Not Apply</option>
-											</select>
-											<script>
-												$('[name=student-{{index}}-category-{{metric}}]').val('{{value}}')
-											</script>
-										</td>
-									{{/evaluation}}
-									<td>
-										<input name="student-1-submission" type="file" class="form-control-file btn"></input>
-										attach <i class="material-icons">attachment</i>
-									</td>
-								</tr>
-							{{/evaluations}}
-						</table>
-						<div class="row">
-							<div class="col">
-								<input type="submit" class="btn btn-primary" />
-							</div>
-							<div class="col-1 ml-auto">
-								<button type="button" onClick="" class="btn btn-success">Create New Artifact</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		{{/artifacts}}
-	{{/student_learning_outcomes}}
+  <div class="row">
+    <div class="col">
+      <h2>CS498 Course Portfolio</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>
+        Course Summary
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4>
+        This course will be marked as read-only on: {{end_date}}
+      </h4>
+    </div>
+  </div>
+  <hr />
+  {{#student_learning_outcomes}}
+  <div class="row">
+    <div class="col">
+      <h3>Student Learning Outcome {{index}}</h3>
+      <p>{{description}}</p>
+      <table class="table" id="student_learning_outcome_rubric">
+        <tr>
+          <th>Assessment Score</th>
+          {{#metrics}}
+          <th>{{name}}</th>
+          {{/metrics}}
+        </tr>
+        <tr>
+          <td style="background-color:blue;color:black;">Exceeds Standards</td>
+          {{#metrics}}
+          <td>{{exceeds}}</td>
+          {{/metrics}}
+        </tr>
+        <tr>
+          <td style="background-color:yellowgreen;color:black;">
+            Meets Standards
+          </td>
+          {{#metrics}}
+          <td>{{meets}}</td>
+          {{/metrics}}
+        </tr>
+        <tr>
+          <td style="background-color:yellow;color:black;">
+            Partially Meets Standards
+          </td>
+          {{#metrics}}
+          <td>{{partially}}</td>
+          {{/metrics}}
+        </tr>
+        <tr>
+          <td style="background-color:red;color:black;">
+            Does Not Meet Standards
+          </td>
+          {{#metrics}}
+          <td>{{not}}</td>
+          {{/metrics}}
+        </tr>
+      </table>
+    </div>
+  </div>
+  {{#artifacts}}
+  <div class="row">
+    <div class="col">
+      <h3>Artifact 1: {{name}}</h3>
+      <form id="edit_course_form" target="_self" method="POST">
+        <table class="table">
+          <tr>
+            <th>Student Index</th>
+            {{#metrics}}
+            <th>{{name}}</th>
+            {{/metrics}}
+            <th>Student Submission</th>
+          </tr>
+          {{#evaluations}}
+          <tr>
+            <td>{{index}}</td>
+            {{#evaluation}}
+            <td>
+              <select
+                class="form-control"
+                name="student-{{index}}-category-{{metric}}"
+              >
+                <option value="6" style="background-color:blue;color:black;"
+                  >Exceeds</option
+                >
+                <option
+                  value="7"
+                  style="background-color:yellowgreen;color:black;"
+                  >Meets</option
+                >
+                <option value="8" style="background-color:yellow;color:black;"
+                  >Partially</option
+                >
+                <option value="9" style="background-color:red;color:black;"
+                  >Not</option
+                >
+                <option value="10">Does Not Apply</option>
+              </select>
+              <script>
+                $("[name=student-{{index}}-category-{{metric}}]").val(
+                  "{{value}}"
+                );
+              </script>
+            </td>
+            {{/evaluation}}
+            <td>
+              <input
+                name="student-1-submission"
+                type="file"
+                class="form-control-file btn"
+              />
+              attach <i class="material-icons">attachment</i>
+            </td>
+          </tr>
+          {{/evaluations}}
+        </table>
+
+        <div class="row">
+          <div class="col">
+            <input type="submit" class="btn btn-primary" />
+          </div>
+          <div class="col-1 ml-auto">
+            <button type="button" onClick="" class="btn btn-success">
+              Create New Artifact
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{/artifacts}} {{/student_learning_outcomes}}
 </section>

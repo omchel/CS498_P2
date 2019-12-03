@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
-const { Model } = require('objection');
+const { Model } = require("objection");
 
 class Course extends Model {
   // Table name is the only required property.
   static get tableName() {
-    return 'course';
+    return "course";
   }
 
   static get idColumn() {
-    return 'id';
+    return "id";
   }
 
   // Optional JSON schema. This is not the database schema! Nothing is generated
@@ -17,28 +17,29 @@ class Course extends Model {
   // is created it is checked against this schema. http://json-schema.org/.
   static get jsonSchema() {
     return {
-      type: 'object',
-      required: ['department_id', 'number'],
+      type: "object",
+      required: ["department_id", "number", "end_date"],
 
       properties: {
-        id: { type: 'integer' },
-        department_id: { type: 'integer' },
-        number: { type: 'integer' },
+        id: { type: "integer" },
+        department_id: { type: "integer" },
+        number: { type: "integer" },
+        end_date: { type: "varchar" }
       }
     };
   }
 
   // This object defines the relations to other models.
   static get relationMappings() {
-    const Department = require('./Department');
+    const Department = require("./Department");
 
     return {
       department: {
         relation: Model.BelongsToOneRelation,
         modelClass: Department,
         join: {
-          from: 'course.department_id',
-          to: 'department.id'
+          from: "course.department_id",
+          to: "department.id"
         }
       }
     };

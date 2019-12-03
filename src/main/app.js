@@ -57,7 +57,6 @@ app.use(function(req, res, next) {
       });
     }
     breadcrumbs[breadcrumbs.length - 1].last = true;
-    console.log(breadcrumbs);
     req.breadcrumbs = breadcrumbs;
   }
   next();
