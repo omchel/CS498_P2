@@ -19,11 +19,11 @@ describe('Lib - User', () => {
       // User.query()
       sandbox.stub(User, "query").returns({
         // User.query().findById()
-	findById: sandbox.stub().returns({
-	  // An example user object
-	  id: 1,
-	  linkblue_username: 'egto222'
-	})
+	       findById: sandbox.stub().returns({
+	          // An example user object
+	           id: 1,
+	           linkblue_username: 'egto222'
+	       })
       })
 
       // Act
