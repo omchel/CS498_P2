@@ -23,6 +23,9 @@
   <div class="row">
     <div class="col">
       <h3>Student Learning Outcome {{index}}</h3>
+      <button type="button" onClick="alert('Reminder: These are NOT assignment grades.')" class="btn btn-success">
+        ?
+      </button>
       <p>{{description}}</p>
       <table class="table" id="student_learning_outcome_rubric">
         <tr>
@@ -67,6 +70,11 @@
   {{#artifacts}}
   <div class="row">
     <div class="col">
+      <div>
+            <button type="button" onClick="alert('Artifacts can be shared across different student learning objects.')" class="btn btn-success">
+              ?
+            </button>
+      </div>
       <h3>Artifact 1: {{name}}</h3>
       <form id="edit_course_form" target="_self" method="POST">
         <table class="table">
@@ -116,6 +124,9 @@
                 class="form-control-file btn"
               />
               attach <i class="material-icons">attachment</i>
+              <button type="button" onClick="alert('For each student in the group, upload their artifact and evaluation score.')" class="btn btn-success">
+                ?
+              </button>
             </td>
           </tr>
           {{/evaluations}}
@@ -170,6 +181,9 @@
                   class="form-control-file btn"
                 />
                 attach <i class="material-icons">attachment</i>
+                <button type="button" onClick="alert('For each student in the group, upload their artifact and evaluation score.')" class="btn btn-success">
+                  ?
+                </button>
               </td>
             </tr>
             {{/evaluations}}
@@ -224,6 +238,9 @@
                     class="form-control-file btn"
                   />
                   attach <i class="material-icons">attachment</i>
+                  <button type="button" onClick="alert('For each student in the group, upload their artifact and evaluation score.')" class="btn btn-success">
+                    ?
+                  </button>
                 </td>
               </tr>
               {{/evaluations}}
