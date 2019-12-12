@@ -15,10 +15,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@v1.1
-      env:
-        SONAR_TOKEN: omchel
     - name: Install dependencies
       run: npm install
     - name: Run Unit Test
