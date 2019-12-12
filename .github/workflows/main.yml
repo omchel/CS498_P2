@@ -10,13 +10,12 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
     services:
       postgres:
-        options: --name=postgres
-        
+        options: 
+          --name=postgres
+        image: postgres:9.6   
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
