@@ -95,5 +95,5 @@ Then run `npm run setup_db`. This will run all database migrations and seed both
 `npm run setup_db`
 
 ### to run scratch file
-
+ ## no
 `npm run scratch`
