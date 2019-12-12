@@ -15,7 +15,7 @@ jobs:
       postgres:
         options: 
           --name=postgres
-        image: postgres:9.6   
+        image: postgres:11   
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
@@ -26,8 +26,12 @@ jobs:
         postgresql version: '11'
     - name: Setup Database
       run: |
-          docker exec -d postgres psql -c 'CREATE DATABASE abet_system_dev'
-          docker exec -d postgres psql -c 'CREATE DATABASE abet_system_test'
+          docker run -d postgres psql -c 'CREATE DATABASE abet_system_dev'
+          docker run -d postgres psql -c 'CREATE DATABASE abet_system_test'
           npm run setup_db
-    - name: Run Unit Test
-      run: npm run test
+          
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Unit Test
+        run: npm run test
