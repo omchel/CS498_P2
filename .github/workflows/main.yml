@@ -17,8 +17,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: npm install
-    - uses: harmon758/postgresql-action@v1
+    - name: Install Postgres
+      uses: harmon758/postgresql-action@v1
       with:
         postgresql version: '11'
+    - name: Setup Database
+      run: npm run setup_db
     - name: Run Unit Test
       run: npm run test
