@@ -22,6 +22,9 @@ jobs:
       with:
         postgresql version: '11'
     - name: Setup Database
-      run: npm run setup_db
+      run: |
+          psql -c 'CREATE DATABASE abet_system_dev'
+          psql -c 'CREATE DATABASE abet_system_test'
+          npm run setup_db
     - name: Run Unit Test
       run: npm run test
