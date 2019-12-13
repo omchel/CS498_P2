@@ -23,7 +23,7 @@ jobs:
     - name: Install Postgres
       uses: harmon758/postgresql-action@v1
       with:
-        postgresql version: '11'
+        postgresql version: 11
     - name: Setup Database
       run: |
           docker run -d --name postgres psql -c 'CREATE DATABASE abet_system_dev'
