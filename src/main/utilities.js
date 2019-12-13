@@ -8,7 +8,7 @@ const utilities = {
     }
     return randomItems;
   },
-  randomSelect: (items, numItems) => {
+  random: (items, numItems) => {
     var randomItems = [];
     while (randomItems.length !== numItems) {
       randomIndex = Math.floor(Math.random() * items.length);
