@@ -26,8 +26,8 @@ jobs:
         postgresql version: 11
     - name: Setup Database
       run: |
-          docker run -d postgres -c 'CREATE DATABASE abet_system_dev'
-          docker run -d postgres -c 'CREATE DATABASE abet_system_test'
+          docker run -d postgres -c 'CREATE DATABASE abet_system_dev;'
+          docker run -d postgres -c 'CREATE DATABASE abet_system_test;'
           npm run setup_db
     - name: Run Unit Test
       run: npm run test
